@@ -1,60 +1,53 @@
 import React from 'react';
-import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import KeskustaScreen from '../screens/KeskustaScreen';
+import HervantaScreen from '../screens/HervantaScreen';
+import KauppiScreen from '../screens/KauppiScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+
+const options = {
+  showIcon: false,
+  labelStyle: {
+    fontSize: 16
+  },
+  tabStyle: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  activeTintColor: 'orange'
+}
+
+const KeskustaStack = createStackNavigator({
+  TAY: KeskustaScreen,
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
+KeskustaStack.navigationOptions = {
+  tabBarLabel: 'Keskusta',
+  tabBarOptions: options
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const HervantaStack = createStackNavigator({
+  TTY: HervantaScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
-    />
-  ),
+HervantaStack.navigationOptions = {
+  tabBarLabel: 'Hervanta',
+  tabBarOptions: options
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const KauppiStack = createStackNavigator({
+  KAUPPI: KauppiScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
-    />
-  ),
+KauppiStack.navigationOptions = {
+  tabBarLabel: 'Kauppi',
+  tabBarOptions: options
 };
 
 export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  KeskustaStack,
+  HervantaStack,
+  KauppiStack
 });
