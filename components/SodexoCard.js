@@ -11,8 +11,21 @@ export default class SodexoCard extends React.Component {
     };
   }
 
+  getCurrentDate() {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0
+    let yyyy = today.getFullYear();
+
+    return today = yyyy + '/' + mm + '/' + dd;
+  }
+
   fetchSodexo() {
-    axios.get('https://www.sodexo.fi/ruokalistat/output/daily_json/92/2018/12/21/fi')
+    axios.get('https://www.sodexo.fi/ruokalistat/output/daily_json/' +
+    this.props.kitchenId + '/' +
+    this.getCurrentDate() + '/' +
+    'fi'
+    )
     .then((response) => {
       this.setState({
       sodexoCourses: this.state.sodexoCourses.concat(response.data.courses)

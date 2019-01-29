@@ -17,13 +17,23 @@ export default class JuvenesCard extends React.Component {
     return removeTrail;
   }
 
+  getCurrentDate() {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0
+    let yyyy = today.getFullYear();
+
+    return today = dd + '/' + mm + '/' + yyyy;
+  }
+
   fetchJuvenes() {
     axios.get(
       'http://www.juvenes.fi//DesktopModules/Talents.LunchMenu/LunchMenuServices.asmx/GetMenuByDate?' +
       'KitchenId=' + this.props.kitchenId +
       '&MenuTypeId=' + this.props.menuTypeId +
-      '&Date=28/1/2019' +
-      '&lang=fi')
+      '&Date=' + this.getCurrentDate() +
+      '&lang=fi'
+      )
     .then((response) => {
       const json = this.cleanJSON(response.data);
       this.setState({

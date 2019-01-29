@@ -19,12 +19,8 @@ export default class KeskustaScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <JuvenesCard
-        restaurantName="Yliopiston ravintola"
-        kitchenId={13}
-        menuTypeId={60}
-        />
-        <SodexoCard restaurantName="Linna" />
+        <JuvenesCard restaurantName="Yliopiston ravintola" kitchenId={13} menuTypeId={60} />
+        <SodexoCard restaurantName="Linna" kitchenId={92} />
       </ScrollView>
     );
   }
