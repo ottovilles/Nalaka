@@ -23,7 +23,7 @@ export default class JuvenesCard extends React.Component {
     let mm = today.getMonth() + 1; //January is 0
     let yyyy = today.getFullYear();
 
-    return today = dd + '/' + mm + '/' + yyyy;
+    return today = 28 + '/' + mm + '/' + yyyy;
   }
 
   fetchJuvenes() {
@@ -50,13 +50,11 @@ export default class JuvenesCard extends React.Component {
       let sideDishes = ''
 
       for (let i = 1; i < course.MenuItems.length; i++) {
-        sideDishes = sideDishes + course.MenuItems[i].Name;
-        
-        if (i < course.MenuItems.length - 1) {
-          sideDishes = sideDishes + '\n';
+        if (course.MenuItems[i].Name && course.MenuItems[i].Name !== '') {
+          sideDishes = sideDishes + course.MenuItems[i].Name + '\n';
         }
       }
-      return sideDishes;
+      return sideDishes.trim();
     }
 
     return null;
