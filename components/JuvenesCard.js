@@ -7,7 +7,8 @@ export default class JuvenesCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      juvenesJson: '',
+      juvenesObject: null,
+      isLoading: false
     };
   }
 
@@ -27,6 +28,7 @@ export default class JuvenesCard extends React.Component {
   }
 
   fetchJuvenes() {
+    this.setState({ isLoading: true });
     axios.get(
       'http://www.juvenes.fi//DesktopModules/Talents.LunchMenu/LunchMenuServices.asmx/GetMenuByDate?' +
       'KitchenId=' + this.props.kitchenId +
@@ -35,10 +37,8 @@ export default class JuvenesCard extends React.Component {
       '&lang=fi'
       )
     .then((response) => {
-      const json = this.cleanJSON(response.data);
-      this.setState({
-        juvenesJson: json
-      });
+      this.setState({ juvenesObject: JSON.parse(this.cleanJSON(response.data)) });
+      this.setState({ isLoading: false });
     })
     .catch((error) => {
       console.log(error);
@@ -65,18 +65,13 @@ export default class JuvenesCard extends React.Component {
   }
 
   render() {
-    let juvenesObject = '';
-    if (this.state.juvenesJson) {
-      juvenesObject = JSON.parse(this.state.juvenesJson);
-    } 
-
     return (
     <View style={styles.container}>
       <Card title={this.props.restaurantName} dividerStyle={styles.divider}>
         {
-          this.state.juvenesJson
+          this.state.juvenesObject && this.state.juvenesObject.MealOptions.length > 0
           ?
-          juvenesObject.MealOptions.map((course, i) => (
+          this.state.juvenesObject.MealOptions.map((course, i) => (
           <ListItem
             key={i}
             title={course.MenuItems[0].Name}
@@ -89,7 +84,7 @@ export default class JuvenesCard extends React.Component {
           />
           ))
           :
-          <Text>no data</Text>
+          <Text>{ this.state.isLoading ? 'Ladataan ruokatietoja' : 'Ravintola ei tarjoa ruokatietoja tälle päivälle'}</Text>
         }
       </Card>
     </View>
