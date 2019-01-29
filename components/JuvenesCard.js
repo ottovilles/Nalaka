@@ -23,7 +23,7 @@ export default class JuvenesCard extends React.Component {
     let mm = today.getMonth() + 1; //January is 0
     let yyyy = today.getFullYear();
 
-    return today = 28 + '/' + mm + '/' + yyyy;
+    return today = dd + '/' + mm + '/' + yyyy;
   }
 
   fetchJuvenes() {
