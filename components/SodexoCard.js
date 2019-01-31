@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { Card, ListItem } from 'react-native-elements'
 import axios from 'axios';
 
@@ -7,7 +7,8 @@ export default class SodexoCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sodexoCourses: []
+      sodexoCourses: [],
+      isLoading: false
     };
   }
 
@@ -21,6 +22,7 @@ export default class SodexoCard extends React.Component {
   }
 
   fetchSodexo() {
+    this.setState({ isLoading: true});
     axios.get('https://www.sodexo.fi/ruokalistat/output/daily_json/' +
     this.props.kitchenId + '/' +
     this.getCurrentDate() + '/' +
@@ -28,11 +30,12 @@ export default class SodexoCard extends React.Component {
     )
     .then((response) => {
       this.setState({
-      sodexoCourses: this.state.sodexoCourses.concat(response.data.courses)
+        sodexoCourses: this.state.sodexoCourses.concat(response.data.courses)
       });
+      this.setState({ isLoading: false });
     })
     .catch((error) => {
-      console.log(error);
+      this.setState({ isLoading: false });
     })
   };
 
@@ -44,6 +47,8 @@ export default class SodexoCard extends React.Component {
     <View style={styles.container}>
       <Card title={this.props.restaurantName} dividerStyle={styles.divider}>
         {
+          this.state.sodexoCourses.length > 0
+          ?
            this.state.sodexoCourses.map((course, i) => (
               <ListItem
                 key={i}
@@ -53,6 +58,8 @@ export default class SodexoCard extends React.Component {
                 hideChevron
               />
           ))
+          :
+          <Text>{ this.state.isLoading ? 'Ladataan ruokatietoja' : 'Ravintola ei tarjoa ruokatietoja tälle päivälle'}</Text>
         }
       </Card>
     </View>
