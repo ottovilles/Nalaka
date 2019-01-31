@@ -69,7 +69,9 @@ export default class JuvenesCard extends React.Component {
     <View style={styles.container}>
       <Card title={this.props.restaurantName} dividerStyle={styles.divider}>
         {
-          this.state.juvenesObject && this.state.juvenesObject.MealOptions.length > 0
+          this.state.juvenesObject &&
+          this.state.juvenesObject.MealOptions.length > 0 &&
+          this.state.juvenesObject.MealOptions[0].MenuItems.length > 0
           ?
           this.state.juvenesObject.MealOptions.map((course, i) => (
           <ListItem
