@@ -41,7 +41,7 @@ export default class JuvenesCard extends React.Component {
       this.setState({ isLoading: false });
     })
     .catch((error) => {
-      console.log(error);
+      this.setState({ isLoading: false });
     })
   };
 
