@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, Text, StyleSheet } from 'react-native';
+import FazerCard from '../components/FazerCard';
+import SodexoCard from '../components/SodexoCard';
+import JuvenesCard from '../components/JuvenesCard';
 
 export default class HervantaScreen extends React.Component {
   static navigationOptions = {
@@ -8,9 +11,16 @@ export default class HervantaScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>HERVANTA</Text>
-      </View>
+      <ScrollView style={styles.container}>
+        <SodexoCard restaurantName="Hertsi" kitchenId={12812} />
+        <FazerCard restaurantName="Reaktori" kitchenId='0812' />
+
+        <JuvenesCard restaurantName="Newton" kitchenId={6} menuTypeId={60} />
+        <JuvenesCard restaurantName="Newton, Street food" kitchenId={6} menuTypeId={86} />
+        <JuvenesCard restaurantName="Café Konehuone, Fusion Kitchen" kitchenId={60038} menuTypeId={3} />
+        <JuvenesCard restaurantName="Café Konehuone, Såås Bar" kitchenId={60038} menuTypeId={77} />
+
+      </ScrollView>
     );
   }
 }
