@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Card, ListItem } from 'react-native-elements'
 import axios from 'axios';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class FazerCard extends React.Component {
   constructor(props) {
@@ -52,7 +53,6 @@ export default class FazerCard extends React.Component {
   }
 
   render() {
-    console.log(this.state.fazerObject);
     return (
     <View style={styles.container}>
       <Card title={this.props.restaurantName} dividerStyle={styles.divider}>
@@ -63,7 +63,7 @@ export default class FazerCard extends React.Component {
           ?
           this.state.fazerObject.MenusForDays[0].SetMenus.map((course, i) => (
             course.Components.length > 0
-            &&
+            ?
           <ListItem
             key={i}
             title={this.removeParenthesesFromName(course.Components[0])}
@@ -72,8 +72,10 @@ export default class FazerCard extends React.Component {
             topDivider={i === 0 ? false : true}
             titleStyle={styles.listTitle}
             subtitleNumberOfLines={course.Components.length - 1}
-            hideChevron
+            leftIcon={ course.Name === 'iltaruoka' ? <Icon name="moon-o" /> : null}
           />
+          :
+          null
           ))
           :
           <Text>{ this.state.isLoading ? 'Ladataan ruokatietoja' : 'Ravintola ei tarjoa ruokatietoja tälle päivälle'}</Text>
