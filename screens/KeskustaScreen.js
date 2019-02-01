@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  ScrollView,
-} from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import SodexoCard from '../components/SodexoCard';
 import JuvenesCard from '../components/JuvenesCard';
 import FazerCard from '../components/FazerCard';

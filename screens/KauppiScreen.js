@@ -1,7 +1,5 @@
 import React from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
-import FazerCard from '../components/FazerCard';
-import SodexoCard from '../components/SodexoCard';
 import JuvenesCard from '../components/JuvenesCard';
 
 export default class KauppiScreen extends React.Component {
@@ -11,12 +9,11 @@ export default class KauppiScreen extends React.Component {
 
   render() {
     return (
-<ScrollView style={styles.container}>
+      <ScrollView style={styles.container}>
         <JuvenesCard restaurantName="Ravintola Arvo" kitchenId={5} menuTypeId={60} />
         <JuvenesCard restaurantName="Ravintola Arvo, Street food" kitchenId={5} menuTypeId={86} />
         <JuvenesCard restaurantName="Café Lea" kitchenId={50026} menuTypeId={83} />
         <JuvenesCard restaurantName="Café Lea, Fusion Kitchen" kitchenId={50026} menuTypeId={3} />
-
       </ScrollView>
     );
   }
