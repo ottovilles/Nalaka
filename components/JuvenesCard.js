@@ -82,7 +82,6 @@ export default class JuvenesCard extends React.Component {
             topDivider={i === 0 ? false : true}
             titleStyle={styles.listTitle}
             subtitleNumberOfLines={course.MenuItems.length - 1}
-            hideChevron
           />
           ))
           :
