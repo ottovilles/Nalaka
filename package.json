@@ -21,7 +21,6 @@
     "react-navigation": "^3.0.9"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.7.1",
     "babel-preset-expo": "^5.0.0",
     "jest-expo": "^32.0.0"
   },
