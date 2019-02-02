@@ -3,16 +3,17 @@ import { StyleSheet, ScrollView } from 'react-native';
 import SodexoCard from '../components/SodexoCard';
 import JuvenesCard from '../components/JuvenesCard';
 import FazerCard from '../components/FazerCard';
+import Header from '../components/Header';
 
 export default class KeskustaScreen extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
   }
 
   static navigationOptions = {
-    title: 'Keskustakampus',
+    headerTitle: <Header title="Keskustakampus"/>
   };
+  
 
   render() {
     return (

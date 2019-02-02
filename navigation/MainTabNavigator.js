@@ -20,21 +20,19 @@ const options = {
 }
 
 const KeskustaStack = createStackNavigator({
-  TAY: KeskustaScreen,
+  KESKUSTA: KeskustaScreen,
 });
 
 KeskustaStack.navigationOptions = {
   tabBarLabel: 'Keskusta',
-  tabBarOptions: options
 };
 
 const HervantaStack = createStackNavigator({
-  TTY: HervantaScreen,
+  HERVANTA: HervantaScreen,
 });
 
 HervantaStack.navigationOptions = {
   tabBarLabel: 'Hervanta',
-  tabBarOptions: options
 };
 
 const KauppiStack = createStackNavigator({
@@ -43,11 +41,17 @@ const KauppiStack = createStackNavigator({
 
 KauppiStack.navigationOptions = {
   tabBarLabel: 'Kauppi',
-  tabBarOptions: options
 };
 
-export default createBottomTabNavigator({
-  KeskustaStack,
-  HervantaStack,
-  KauppiStack
-});
+export default createBottomTabNavigator(
+  {
+    KeskustaStack,
+    HervantaStack,
+    KauppiStack
+  },
+  {
+    tabBarOptions: options,
+    lazy: false,
+    initialRouteName: 'KauppiStack'
+  }
+);

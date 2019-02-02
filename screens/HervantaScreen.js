@@ -3,10 +3,12 @@ import { ScrollView, StyleSheet } from 'react-native';
 import FazerCard from '../components/FazerCard';
 import SodexoCard from '../components/SodexoCard';
 import JuvenesCard from '../components/JuvenesCard';
+import Header from '../components/Header';
+
 
 export default class HervantaScreen extends React.Component {
   static navigationOptions = {
-    title: 'Hervannan kampus',
+    headerTitle: <Header title="Hervannan kampus"/>
   };
 
   render() {

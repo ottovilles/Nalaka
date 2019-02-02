@@ -1,10 +1,11 @@
 import React from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
 import JuvenesCard from '../components/JuvenesCard';
+import Header from '../components/Header';
 
 export default class KauppiScreen extends React.Component {
   static navigationOptions = {
-    title: 'Kaupin kampus',
+    headerTitle: <Header title="Kaupin kampus"/>
   };
 
   render() {
