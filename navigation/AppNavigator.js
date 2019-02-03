@@ -9,7 +9,6 @@ export default createAppContainer(createSwitchNavigator(
   {
     Loading: LoadingScreen,
     Main: MainTabNavigator,
-    Settings: SettingsScreen
   },
   {
     initialRouteName: 'Loading'

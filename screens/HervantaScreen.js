@@ -1,14 +1,16 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, Button } from 'react-native';
 import FazerCard from '../components/FazerCard';
 import SodexoCard from '../components/SodexoCard';
 import JuvenesCard from '../components/JuvenesCard';
-import Header from '../components/Header';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class HervantaScreen extends React.Component {
-  static navigationOptions = {
-    headerTitle: <Header title="Hervannan kampus"/>
+  static navigationOptions = ({navigation}) => {
+    return {
+      title: 'Hervannan kampus',
+      headerRight: <Icon name="settings" size={28} onPress={() => navigation.navigate('Settings')} />   
+    };
   };
 
   render() {

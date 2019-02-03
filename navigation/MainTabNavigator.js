@@ -4,6 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import KeskustaScreen from '../screens/KeskustaScreen';
 import HervantaScreen from '../screens/HervantaScreen';
 import KauppiScreen from '../screens/KauppiScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 
 const options = {
@@ -21,26 +22,38 @@ const options = {
 
 const KeskustaStack = createStackNavigator({
   KESKUSTA: KeskustaScreen,
+  Settings: SettingsScreen
 });
 
-KeskustaStack.navigationOptions = {
-  tabBarLabel: 'Keskusta',
+KeskustaStack.navigationOptions = ({ navigation }) => {  
+  return {
+    tabBarLabel: 'Keskusta',
+    tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'Settings' ? false : true
+  }
 };
 
 const HervantaStack = createStackNavigator({
   HERVANTA: HervantaScreen,
+  Settings: SettingsScreen
 });
 
-HervantaStack.navigationOptions = {
-  tabBarLabel: 'Hervanta',
+HervantaStack.navigationOptions = ({ navigation }) => {  
+  return {
+    tabBarLabel: 'Hervanta',
+    tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'Settings' ? false : true
+  }
 };
 
 const KauppiStack = createStackNavigator({
   KAUPPI: KauppiScreen,
+  Settings: SettingsScreen
 });
 
-KauppiStack.navigationOptions = {
-  tabBarLabel: 'Kauppi',
+KauppiStack.navigationOptions = ({ navigation }) => {  
+  return {
+    tabBarLabel: 'Kauppi',
+    tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'Settings' ? false : true
+  }
 };
 
 export default createBottomTabNavigator(

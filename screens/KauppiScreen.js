@@ -1,11 +1,14 @@
 import React from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
 import JuvenesCard from '../components/JuvenesCard';
-import Header from '../components/Header';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class KauppiScreen extends React.Component {
-  static navigationOptions = {
-    headerTitle: <Header title="Kaupin kampus"/>
+  static navigationOptions = ({navigation}) => {
+    return {
+      title: 'Kaupin kampus',
+      headerRight: <Icon name="settings" size={28} onPress={() => navigation.navigate('Settings')} />   
+    };
   };
 
   render() {
