@@ -9,7 +9,7 @@ export default class HervantaScreen extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
       title: 'Hervannan kampus',
-      headerRight: <Icon name="settings" size={28} onPress={() => navigation.navigate('Settings')} />   
+      headerRight: <Icon style={styles.headerIcon} name="settings" size={28} onPress={() => navigation.navigate('Settings')} />   
     };
   };
 
@@ -34,4 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  headerIcon: {
+    paddingRight: 8
+  }
 });

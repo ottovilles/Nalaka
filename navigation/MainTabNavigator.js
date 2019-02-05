@@ -21,19 +21,19 @@ const options = {
 }
 
 const KeskustaStack = createStackNavigator({
-  KESKUSTA: KeskustaScreen,
+  Keskusta: KeskustaScreen,
   Settings: SettingsScreen
 });
 
 KeskustaStack.navigationOptions = ({ navigation }) => {  
   return {
     tabBarLabel: 'Keskusta',
-    tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'Settings' ? false : true
+    tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'Settings' ? false : true,
   }
 };
 
 const HervantaStack = createStackNavigator({
-  HERVANTA: HervantaScreen,
+  Hervanta: HervantaScreen,
   Settings: SettingsScreen
 });
 
@@ -45,7 +45,7 @@ HervantaStack.navigationOptions = ({ navigation }) => {
 };
 
 const KauppiStack = createStackNavigator({
-  KAUPPI: KauppiScreen,
+  Kauppi: KauppiScreen,
   Settings: SettingsScreen
 });
 

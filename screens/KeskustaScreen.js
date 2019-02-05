@@ -13,7 +13,7 @@ export default class KeskustaScreen extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
       title: 'Keskustakampus',
-      headerRight: <Icon name="settings" size={28} onPress={() => navigation.navigate('Settings')} /> 
+      headerRight: <Icon style={styles.headerIcon} name="settings" size={28} onPress={() => navigation.navigate('Settings')} />   
     };
   };
   
@@ -40,5 +40,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  headerIcon: {
+    paddingRight: 8
   }
 });
