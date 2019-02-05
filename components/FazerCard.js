@@ -72,7 +72,7 @@ export default class FazerCard extends React.Component {
             topDivider={i === 0 ? false : true}
             titleStyle={styles.listTitle}
             subtitleNumberOfLines={course.Components.length - 1}
-            leftIcon={ course.Name === 'iltaruoka' ? <Icon name="moon-o" /> : null}
+            leftIcon={ course.Name.toLowerCase() === 'iltaruoka' ? <Icon name="moon-o" /> : null}
           />
           :
           null
