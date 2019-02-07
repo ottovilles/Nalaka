@@ -15,6 +15,8 @@ export default class LoadingScreen extends React.Component {
       if (value !== null) {
         console.log(value);
         this.props.navigation.navigate(value);
+      } else {
+        this.props.navigation.navigate('Keskusta');
       }
     } catch (error) {
     }

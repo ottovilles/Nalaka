@@ -7,7 +7,7 @@ export default class KauppiScreen extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
       title: 'Kaupin kampus',
-      headerRight: <Icon style={styles.headerIcon} name="settings" size={28} onPress={() => navigation.navigate('Settings')} />   
+      headerRight: <Icon style={styles.headerIcon} name="settings" size={28} onPress={() => navigation.navigate('Settings')} />
     };
   };
 
