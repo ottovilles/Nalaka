@@ -7,7 +7,10 @@ import MainTabNavigator from './MainTabNavigator';
 
 export default createAppContainer(createSwitchNavigator(
   {
-    Loading: LoadingScreen,
-    Main: MainTabNavigator,
+    Main:  MainTabNavigator,
+    Loading: LoadingScreen
   },
+  {
+    initialRouteName: 'Main',
+  }
 ));

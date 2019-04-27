@@ -65,6 +65,6 @@ export default createBottomTabNavigator(
   {
     tabBarOptions: options,
     lazy: false,
-    initialRouteName: 'KauppiStack',
+    initialRouteName: 'KauppiStack'
   }
 );

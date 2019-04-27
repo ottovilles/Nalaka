@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Card, ListItem } from 'react-native-elements'
 import axios from 'axios';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class FazerCard extends React.Component {
   constructor(props) {
@@ -72,7 +72,7 @@ export default class FazerCard extends React.Component {
             topDivider={i === 0 ? false : true}
             titleStyle={styles.listTitle}
             subtitleNumberOfLines={course.Components.length - 1}
-            leftIcon={ course.Name.toLowerCase() === 'iltaruoka' ? <Icon name="moon-o" /> : null}
+            rightIcon={ course.Name.toLowerCase() === 'iltaruoka' ? <Icon name="weather-night" /> : null}
           />
           :
           null

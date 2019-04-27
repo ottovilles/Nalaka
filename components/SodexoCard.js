@@ -55,7 +55,7 @@ export default class SodexoCard extends React.Component {
                 title={course.title_fi}
                 topDivider={i === 0 ? false : true}
                 titleStyle={styles.listTitle}
-              />
+                />
           ))
           :
           <Text>{ this.state.isLoading ? 'Ladataan ruokatietoja' : 'Ravintola ei tarjoa ruokatietoja tälle päivälle'}</Text>
