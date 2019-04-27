@@ -22,6 +22,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Mobile application to show menus of UTA restaurants"
   }
 }
