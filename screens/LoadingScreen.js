@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import { PacmanIndicator } from 'react-native-indicators';
+
 export default class LoadingScreen extends React.Component {
 
   constructor() {
@@ -30,8 +31,8 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
   loadingText: {
+    fontFamily: 'montserrat-thin-italic',
     marginBottom: '-25%',
     fontSize: 20,
-    fontWeight: 'bold'
   }
 });
