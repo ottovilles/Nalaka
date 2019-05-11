@@ -15,7 +15,7 @@ export default class FazerCard extends React.Component {
 
   fetchFazer() {
     this.setState({ isLoading: true });
-    axios.get('https://www.fazerfoodco.fi/modules/json/json/Index?' + 
+    return axios.get('https://www.fazerfoodco.fi/modules/json/json/Index?' + 
     'costNumber=' + this.props.kitchenId + 
     '&language=' + 'fi'
     )
@@ -57,6 +57,7 @@ export default class FazerCard extends React.Component {
     <View style={styles.container}>
       <Card title={this.props.restaurantName} dividerStyle={styles.divider}>
       {
+          !this.state.isLoading &&
           this.state.fazerObject &&
           this.state.fazerObject.MenusForDays.length > 0 &&
           this.state.fazerObject.MenusForDays[0].SetMenus.length > 0

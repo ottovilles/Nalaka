@@ -47,6 +47,7 @@ export default class SodexoCard extends React.Component {
     <View style={styles.container}>
       <Card title={this.props.restaurantName} dividerStyle={styles.divider}>
         {
+          !this.state.isLoading &&
           this.state.sodexoCourses.length > 0
           ?
            this.state.sodexoCourses.map((course, i) => (
