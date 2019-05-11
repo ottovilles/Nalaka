@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
   loadingText: {
-    fontFamily: 'montserrat-thin-italic',
     marginBottom: '-25%',
     fontSize: 20,
   }
